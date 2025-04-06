@@ -30,7 +30,7 @@ Abrir dev container reopen in container
 
 Crear carpeta .env colocando 
 
-MONGO_URI=mongodb+srv://[equipo_viajes]:[contraseña]@ingdatos.hzoisln.mongodb.net/viajes_recomendacion?retryWrites=true&w=majority
+MONGO_URI=mongodb+srv://equipo_viajes:[contraseña]@ingdatos.hzoisln.mongodb.net/viajes_recomendacion?retryWrites=true&w=majority
 
 DB_NAME=viajes_recomendacion
 
