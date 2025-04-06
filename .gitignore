@@ -1,0 +1,34 @@
+# ======================================
+# Archivos y carpetas específicos del proyecto
+# ======================================
+.env                   # Credenciales de MongoDB Atlas y otras variables         
+docker-compose.override.yml  # Configuraciones locales opcionales
+
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.log
+venv/
+.python-version
+.ipynb_checkpoints/
+
+*.volume
+**/docker-data/
+
+*.csv
+*.pbix                 # Archivos de Power BI
+
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store              # macOS
+
+*.log
+logs/
+temp/
+
+*.key
+*.pem
+.env
+.DS_Store
