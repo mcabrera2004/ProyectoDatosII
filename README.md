@@ -14,12 +14,15 @@ Este repositorio está preparado para trabajar 100% dentro de un entorno de desa
 
 ### Primer inicio
 
-1. Cloná este repositorio:
+Cloná este repositorio:
    ```bash
    git clone https://github.com/mcabrera2004/viajes_recomendacion.git
    cd viajes_recomendacion
 
-Abrir dev container
+Montar la imagen de docker con:
+   docker-compose up -d
+
+Abrir dev container reopen in container
 
 ---
 
