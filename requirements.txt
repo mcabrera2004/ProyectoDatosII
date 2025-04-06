@@ -1,5 +1,5 @@
 pymongo==4.11.3
-#Flask==3.0.2 
+Flask==3.0.2 
 pandas==2.2.3
 faker==37.1.0
 scikit-learn==1.6.1 # Para machine learning

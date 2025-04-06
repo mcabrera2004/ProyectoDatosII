@@ -10,7 +10,3 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copiar el resto del código
 COPY . .
-
-# Variables de entorno para MongoDB Atlas (se configurarán en docker-compose)
-ENV MONGO_URI=""
-ENV DB_NAME="viajes_db"

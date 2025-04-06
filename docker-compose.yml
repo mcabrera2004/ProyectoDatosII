@@ -5,20 +5,16 @@ services:
       dockerfile: Dockerfile
     env_file:
       - .env
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=development
+    ports:
+      - "5000:5000"  # Mapea el puerto 5000 del contenedor al puerto 5000 de la máquina host
     volumes:
       - .:/viajes_recomendacion                   # Monta el código local para hot-reloading
       #- venv:/app/venv           # Persiste dependencias (opcional)
     tty: true 
     command: tail -f /dev/null  # Mantiene el contenedor en ejecución
 
-  #data_generator:     # Servicio para generar datos de prueba. Desactivado por defecto.
-    #build: .
-    #environment:
-      #- MONGO_URI=mongodb+srv://mcabreraezequiel:ZUH7u03ZsPXN7jYk@ingdatos.hzoisln.mongodb.net/?retryWrites=true&w=majority&appName=IngDatos
-      #- DB_NAME=viajes_recomendacion
-    #command: python src/data_generator.py  # Genera datos al iniciar
-    #volumes:
-      #- .:/app                   # Sincroniza código (si el script se modifica)
-#volumes:
-  #venv:                          # Volumen para persistir el entorno virtual
+
 

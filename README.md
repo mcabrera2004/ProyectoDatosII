@@ -22,7 +22,7 @@ Cloná este repositorio:
 Montar la imagen de docker con:
    docker-compose up -d
 
-Abrir dev container reopen in container
+Abrir "dev container reopen in container"
 
 ---
 
