@@ -1,7 +1,7 @@
 from main import conectar_mongodb
 
 db = conectar_mongodb()
-coleccion = db["testeo"]  # Usamos la colección "testeo"
+coleccion = db["testeo"]
 
 # CREATE
 def insertar_destino(destino):

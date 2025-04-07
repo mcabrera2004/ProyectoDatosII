@@ -12,7 +12,7 @@ def conectar_mongodb():
 
 if __name__ == "__main__":
     client = conectar_mongodb()
-    if client:  # Solo si la conexión fue exitosa
+    if client:
         try:
             db = client[os.environ.get("DB_NAME")]
             print("Colecciones disponibles:", db.list_collection_names())
