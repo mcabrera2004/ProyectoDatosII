@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viajes - Recomendación de Destinos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4a6cf7;
+            --secondary-color: #6b7280;
+            --background-color: #f9fafb;
+            --card-background: white;
+            --text-dark: #111827;
+            --text-light: #6b7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #7c3aed);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: rgba(255,255,255,0.8);
+            font-weight: 300;
+        }
+
+        .search-section {
+            background-color: var(--card-background);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .search-form {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-form > * {
+            flex-grow: 1;
+            max-width: 220px;
+        }
+
+        .search-form select, 
+        .search-form input {
+            padding: 12px 15px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-form select:focus, 
+        .search-form input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(74,108,247,0.1);
+        }
+
+        .search-form button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(74,108,247,0.2);
+        }
+
+        .search-form button:hover {
+            background-color: #3a56e3;
+            transform: translateY(-2px);
+        }
+
+        .recommendations {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .destination-card {
+            background-color: var(--card-background);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+
+        .destination-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .destination-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .destination-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .destination-card-content {
+            padding: 20px;
+        }
+
+        .destination-card-content h3 {
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .destination-card-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background-color: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 30px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .search-form {
+                flex-direction: column;
+            }
+
+            .search-form > * {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Descubre tu Próximo Destino</h1>
+            <p>Recomendaciones personalizadas para tu viaje perfecto</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="search-section">
+            <form class="search-form">
+                <select name="continent">
+                    <option value="">Continente</option>
+                    <option value="europa">Europa</option>
+                    <option value="asia">Asia</option>
+                    <option value="america">América</option>
+                    <option value="africa">África</option>
+                    <option value="oceania">Oceanía</option>
+                </select>
+
+                <select name="budget">
+                    <option value="">Presupuesto</option>
+                    <option value="low">Económico</option>
+                    <option value="medium">Medio</option>
+                    <option value="high">Premium</option>
+                </select>
+
+                <select name="activities">
+                    <option value="">Actividades</option>
+                    <option value="cultural">Cultural</option>
+                    <option value="adventure">Aventura</option>
+                    <option value="relax">Relajación</option>
+                    <option value="nature">Naturaleza</option>
+                </select>
+
+                <input type="month" name="travel-date">
+
+                <button type="submit">Buscar Destinos</button>
+            </form>
+        </section>
+
+        <section class="recommendations">
+            <div class="destination-card">
+                <img src="/api/placeholder/300/250" alt="Destino 1">
+                <div class="destination-card-content">
+                    <h3>París, Francia</h3>
+                    <p>Experiencia cultural única con monumentos históricos y gastronomía excepcional.</p>
+                </div>
+            </div>
+
+            <div class="destination-card">
+                <img src="/api/placeholder/300/250" alt="Destino 2">
+                <div class="destination-card-content">
+                    <h3>Tokio, Japón</h3>
+                    <p>Tecnología de vanguardia, tradiciones milenarias y experiencias culinarias incomparables.</p>
+                </div>
+            </div>
+
+            <div class="destination-card">
+                <img src="/api/placeholder/300/250" alt="Destino 3">
+                <div class="destination-card-content">
+                    <h3>Cusco, Perú</h3>
+                    <p>Sitios arqueológicos impresionantes, cultura inca y paisajes naturales espectaculares.</p>
+                </div>
+            </div>
+
+            <div class="destination-card">
+                <img src="/api/placeholder/300/250" alt="Destino 4">
+                <div class="destination-card-content">
+                    <h3>Bali, Indonesia</h3>
+                    <p>Playas paradisíacas, cultura espiritual y experiencias de relajación total.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 Viajes - Recomendación Personalizada | Proyecto de Ingeniería de Datos</p>
+    </footer>
+</body>
+</html>

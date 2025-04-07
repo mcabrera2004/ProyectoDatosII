@@ -1,10 +1,10 @@
 # src/api.py
-from flask import Flask, jsonify
+from flask import Flask, render_template
 from pymongo import MongoClient
 import os
 
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="../templates")
 
 # Configuración de MongoDB
 MONGO_URI = os.environ.get("MONGO_URI")
@@ -18,7 +18,7 @@ coleccion = db["testeo"]
 @app.route('/', methods=['GET'])
 def home():
     """Ruta de inicio"""
-    return jsonify({"mensaje": "Bienvenido a la API de viajes"}), 200
+    return render_template('index.html')
 
 '''@app.route('/destinos', methods=['GET'])
 def obtener_destinos():
