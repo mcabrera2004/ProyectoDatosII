@@ -9,7 +9,7 @@ services:
       - FLASK_APP=app.py
       - FLASK_ENV=development
     ports:
-      - "5000:5000"  # Mapea el puerto 5000 del contenedor al puerto 5000 de la máquina host
+      - "5051:5000"  # Mapea el puerto 5000 del contenedor al puerto 5000 de la máquina host
     volumes:
       - .:/viajes_recomendacion                   # Monta el código local para hot-reloading
       #- venv:/app/venv           # Persiste dependencias (opcional)
