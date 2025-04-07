@@ -4,7 +4,7 @@ from pymongo import MongoClient
 import os
 
 
-app = Flask(__name__, template_folder="../templates")
+app = Flask(__name__, template_folder="../templates", static_folder="../static")
 
 # Configuración de MongoDB
 MONGO_URI = os.environ.get("MONGO_URI")
