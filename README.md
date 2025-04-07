@@ -20,6 +20,9 @@ Cloná este repositorio:
    cd viajes_recomendacion
 
 Montar la imagen de docker con:
+   docker-compose build
+
+Luego para ejecutar:
    docker-compose up -d
 
 Abrir "dev container reopen in container"
