@@ -64,15 +64,23 @@
             padding: 0 1.5rem;
         }
         
+        /* Botones de acción */
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
         /* Botón para agregar destino */
         .btn-add {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             background-color: var(--success);
             color: white;
             text-decoration: none;
             padding: 0.8rem 1.5rem;
             border-radius: 50px;
-            margin-bottom: 2rem;
             font-weight: 500;
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
@@ -85,6 +93,100 @@
         
         .btn-add i {
             margin-right: 8px;
+        }
+        
+        /* Botón de filtro */
+        .btn-filter {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-filter:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+        }
+        
+        .btn-filter i {
+            margin-right: 8px;
+        }
+        
+        /* Panel de filtros */
+        .filter-panel {
+            background-color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            display: none;
+        }
+        
+        .filter-panel.active {
+            display: block;
+        }
+        
+        .filter-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .filter-title i {
+            margin-right: 8px;
+        }
+        
+        .filter-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--gray);
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+        }
+        
+        .filter-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .btn-reset {
+            background-color: var(--gray);
+            color: var(--dark);
+        }
+        
+        .btn-apply {
+            background-color: var(--primary);
+            color: white;
         }
         
         /* Grid de tarjetas */
@@ -142,6 +244,12 @@
             margin-right: 10px;
             width: 20px;
             color: var(--primary);
+        }
+        
+        /* Estrellas de puntuación */
+        .stars {
+            color: #ffc107;
+            display: flex;
         }
         
         .card-actions {
@@ -203,6 +311,10 @@
             .navbar h1 {
                 font-size: 1.5rem;
             }
+            
+            .filter-form {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -214,9 +326,72 @@
     </header>
     
     <div class="container">
-        <a href="{{ url_for('crear_destino') }}" class="btn-add">
-            <i class="fas fa-plus-circle"></i> Añadir Nuevo Destino
-        </a>
+        <div class="action-buttons">
+            <a href="{{ url_for('crear_destino') }}" class="btn-add">
+                <i class="fas fa-plus-circle"></i> Añadir Nuevo Destino
+            </a>
+            <button class="btn-filter" id="toggleFilters">
+                <i class="fas fa-filter"></i> Filtrar Destinos
+            </button>
+        </div>
+        
+        <!-- Panel de filtros -->
+        <div class="filter-panel" id="filterPanel">
+            <h3 class="filter-title"><i class="fas fa-search"></i> Filtrar Destinos</h3>
+            <form action="{{ url_for('filtro_destinos') }}" method="GET" class="filter-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre del destino:</label>
+                    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ej: Barcelona">
+                </div>
+                
+                <div class="form-group">
+                    <label for="pais">País:</label>
+                    <input type="text" id="pais" name="pais" class="form-control" placeholder="Ej: España">
+                </div>
+                
+                <div class="form-group">
+                    <label for="clima">Clima:</label>
+                    <select id="clima" name="clima" class="form-control">
+                        <option value="">Todos</option>
+                        <option value="Desértico">Desértico</option>
+                        <option value="Tropical">Tropical</option>
+                        <option value="Templado">Templado</option>
+                        <option value="Frío">Frío</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="actividades">Actividades:</label>
+                    <input type="text" id="actividades" name="actividades" class="form-control" placeholder="Ej: aventura">
+                </div>
+                
+                <div class="form-group">
+                    <label for="costo_promedio">Costo Promedio:</label>
+                    <input type="number" id="costo_promedio" name="costo_promedio" class="form-control" placeholder="Ej: 2000">
+                </div>
+                
+                <div class="form-group">
+                    <label for="puntuacion">Puntuación mínima:</label>
+                    <select id="puntuacion" name="puntuacion" class="form-control">
+                        <option value="">Cualquiera</option>
+                        <option value="1">⭐ o más</option>
+                        <option value="2">⭐⭐ o más</option>
+                        <option value="3">⭐⭐⭐ o más</option>
+                        <option value="4">⭐⭐⭐⭐ o más</option>
+                        <option value="5">⭐⭐⭐⭐⭐</option>
+                    </select>
+                </div>
+                
+                <div class="filter-actions">
+                    <button type="reset" class="btn btn-reset">
+                        <i class="fas fa-times"></i> Limpiar
+                    </button>
+                    <button type="submit" class="btn btn-apply">
+                        <i class="fas fa-search"></i> Aplicar Filtros
+                    </button>
+                </div>
+            </form>
+        </div>
         
         <div class="cards-grid">
             {% for destino in destinos %}
@@ -235,6 +410,24 @@
                             <i class="fas fa-money-bill-wave"></i>
                             <span>{{ destino.costo_promedio }}</span>
                         </div>
+                        <div class="info-row">
+                            <i class="fas fa-star"></i>
+                            <div class="stars">
+                                {% for i in range(1, 6) %}
+                                    {% if i <= destino.puntuacion %}
+                                        <i class="fas fa-star"></i>
+                                    {% else %}
+                                        <i class="far fa-star"></i>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% if destino.actividades %}
+                        <div class="info-row">
+                            <i class="fas fa-hiking"></i>
+                            <span>{{ destino.actividades|join(', ') }}</span>
+                        </div>
+                        {% endif %}
                     </div>
                     
                     <div class="card-actions">
@@ -252,5 +445,17 @@
             {% endfor %}
         </div>
     </div>
+
+    <script>
+        // JavaScript para manejar la visualización del panel de filtros
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('toggleFilters');
+            const filterPanel = document.getElementById('filterPanel');
+            
+            toggleBtn.addEventListener('click', function() {
+                filterPanel.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
