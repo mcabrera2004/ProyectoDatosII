@@ -10,13 +10,12 @@ def conectar_mongodb():
         print(f"Error de conexión: {e}")
         return None
 
-if __name__ == "__main__":
-    client = conectar_mongodb()
-    if client:
-        try:
-            db = client[os.environ.get("DB_NAME")]
-            print("Colecciones disponibles:", db.list_collection_names())
-        finally:
-            client.close()
-            print("Conexión cerrada correctamente")
+
+def obtener_base_datos():
+    try:
+        client = conectar_mongodb()
+        return client[os.environ.get("DB_NAME")]
+    except Exception as e:
+        print(f"Error al obtener la base de datos: {e}")
+        return None
  

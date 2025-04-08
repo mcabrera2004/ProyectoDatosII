@@ -1,6 +1,6 @@
-from main import conectar_mongodb
+from main import obtener_base_datos
 
-db = conectar_mongodb()
+db = obtener_base_datos()
 coleccion = db["testeo"]
 
 # CREATE
