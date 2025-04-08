@@ -37,7 +37,7 @@ def generar_destino_fake():
     }
 
 # Función para insertar datos
-@app.route("/dstinos")
+@app.route("/destinos")
 def agregar_destinos():
     #Agregar datos manualmente
     destinos_manuales = [
