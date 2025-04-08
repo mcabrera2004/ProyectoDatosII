@@ -12,8 +12,21 @@ def insertar_varios_destinos(destinos):
     return resultado.inserted_ids
 
 # READ
-def obtener_destinos(filtro={}):
-    return list(coleccion.find(filtro, {"_id": 0}))
+def obtener_destinos(params={}):
+    filtro = {}
+    # Campos de texto
+    for campo in ['nombre', 'pais', 'clima', 'actividades']:
+        if valor := params.get(campo):
+            filtro[campo] = valor
+
+# Campos numéricos
+    for campo in ['costo_promedio', 'puntuacion']:
+        if valor := params.get(campo):
+            try:
+                filtro[campo] = int(valor)
+            except ValueError:
+                pass
+        return list(coleccion.find(filtro, {"_id": 0}))
 
 # UPDATE
 def actualizar_destino(filtro, nuevos_valores):

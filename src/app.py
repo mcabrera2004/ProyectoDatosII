@@ -29,32 +29,8 @@ from flask import request
 @app.route('/destinos', methods=['GET'])
 def filtro_destinos():
     try:
-        filtro = {}
-        if (nombre := request.args.get('nombre')):
-            filtro['nombre'] = nombre
-        
-        if (pais := request.args.get('pais')):
-            filtro['pais'] = pais
-        
-        if (clima := request.args.get('clima')):
-            filtro['clima'] = clima
-        
-        if (actividad := request.args.get('actividades')):
-            filtro['actividades'] = actividad
-        
-        if (costo_promedio := request.args.get('costo_promedio')):
-            try:
-                filtro['costo_promedio'] = int(costo_promedio)
-            except ValueError:
-                pass
-        
-        if (puntuacion := request.args.get('puntuacion')):
-            try:
-                filtro['puntuacion'] = int(puntuacion)
-            except ValueError:
-                pass
-
-        destinos = obtener_destinos(filtro)
+        params = request.args.to_dict()
+        destinos = obtener_destinos(params)
         return render_template('destinos.html', destinos=destinos)
     except Exception as e:
         return render_template('error.html', mensaje=str(e))
