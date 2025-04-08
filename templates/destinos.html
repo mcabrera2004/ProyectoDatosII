@@ -2,101 +2,255 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destinos Turísticos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilos generales */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+        :root {
+            --primary: #4a6fa5;
+            --primary-light: #6889b9;
+            --secondary: #ff6b6b;
+            --dark: #2d3748;
+            --light: #f8f9fa;
+            --gray: #e9ecef;
+            --success: #1abc9c;
+            --danger: #e74c3c;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+        
+        * {
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            box-sizing: border-box;
         }
-
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 20px;
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
         }
-
-        /* Enlace para crear nuevo destino */
-        a {
-            text-decoration: none;
-            color: #0066cc;
-            font-size: 16px;
-            margin-bottom: 15px;
-            display: inline-block;
+        
+        /* Header y navegación */
+        header {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Estilos para la tabla */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: #fff;
+        
+        .navbar {
+            max-width: 1200px;
             margin: 0 auto;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
+        
+        .navbar h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 0;
         }
-        th {
-            background-color: #007bff;
-            color: #fff;
+        
+        /* Contenedor principal */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
         }
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
+        
+        /* Botón para agregar destino */
+        .btn-add {
+            display: inline-block;
+            background-color: var(--success);
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
         }
-
-        /* Estilos para botones y formularios */
-        button {
-            background-color: #dc3545;
-            color: #fff;
+        
+        .btn-add:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+        }
+        
+        .btn-add i {
+            margin-right: 8px;
+        }
+        
+        /* Grid de tarjetas */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        /* Tarjeta de destino */
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+        }
+        
+        .card-header {
+            padding: 1.5rem;
+            background-color: var(--primary-light);
+            color: white;
+        }
+        
+        .card-title {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        
+        .card-country {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .card-info {
+            margin-bottom: 1.2rem;
+        }
+        
+        .info-row {
+            display: flex;
+            margin-bottom: 0.8rem;
+            align-items: center;
+        }
+        
+        .info-row i {
+            margin-right: 10px;
+            width: 20px;
+            color: var(--primary);
+        }
+        
+        .card-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 1.5rem;
+        }
+        
+        .btn {
+            flex: 1;
+            padding: 0.6rem 1rem;
+            border-radius: 5px;
             border: none;
-            padding: 8px 12px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
             cursor: pointer;
-            border-radius: 4px;
+            transition: all 0.2s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
         }
-        button:hover {
-            background-color: #c82333;
+        
+        .btn i {
+            margin-right: 6px;
         }
-        form {
-            display: inline;
+        
+        .btn-edit {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-edit:hover {
+            background-color: var(--primary-light);
+        }
+        
+        .btn-delete {
+            background-color: var(--danger);
+            color: white;
+        }
+        
+        .btn-delete:hover {
+            background-color: #c0392b;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cards-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .navbar h1 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Destinos Turísticos</h1>
-    <a href="{{ url_for('crear_destino') }}">Añadir Nuevo Destino</a>
-    <table>
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>País</th>
-                <th>Clima</th>
-                <th>Costo Promedio</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
+    <header>
+        <div class="navbar">
+            <h1><i class="fas fa-globe-americas"></i> Destinos Turísticos</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <a href="{{ url_for('crear_destino') }}" class="btn-add">
+            <i class="fas fa-plus-circle"></i> Añadir Nuevo Destino
+        </a>
+        
+        <div class="cards-grid">
             {% for destino in destinos %}
-            <tr>
-                <td>{{ destino.nombre }}</td>
-                <td>{{ destino.pais }}</td>
-                <td>{{ destino.clima }}</td>
-                <td>{{ destino.costo_promedio }}</td>
-                <td>
-                    <a href="{{ url_for('editar_destino', id=destino._id) }}">Editar</a>
-                    <form action="{{ url_for('eliminar_destino_ruta', id=destino._id) }}" method="POST" style="display:inline;">
-                        <button type="submit">Eliminar</button>
-                    </form>
-                </td>
-            </tr>
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">{{ destino.nombre }}</h2>
+                    <div class="card-country"><i class="fas fa-map-marker-alt"></i> {{ destino.pais }}</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-info">
+                        <div class="info-row">
+                            <i class="fas fa-cloud-sun"></i>
+                            <span>{{ destino.clima }}</span>
+                        </div>
+                        <div class="info-row">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>{{ destino.costo_promedio }}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card-actions">
+                        <a href="{{ url_for('editar_destino', id=destino._id) }}" class="btn btn-edit">
+                            <i class="fas fa-edit"></i> Editar
+                        </a>
+                        <form action="{{ url_for('eliminar_destino_ruta', id=destino._id) }}" method="POST">
+                            <button type="submit" class="btn btn-delete">
+                                <i class="fas fa-trash-alt"></i> Eliminar
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
             {% endfor %}
-        </tbody>
-    </table>
+        </div>
+    </div>
 </body>
 </html>
