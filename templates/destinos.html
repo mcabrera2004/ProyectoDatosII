@@ -434,9 +434,9 @@
                         <a href="{{ url_for('editar_destino', id=destino._id) }}" class="btn btn-edit">
                             <i class="fas fa-edit"></i> Editar
                         </a>
-                        <form action="{{ url_for('eliminar_destino_ruta', id=destino._id) }}" method="POST">
-                            <button type="submit" class="btn btn-delete">
-                                <i class="fas fa-trash-alt"></i> Eliminar
+                        <form action="{{ url_for('eliminar_destino_ruta', id=destino._id) }}" method="POST" style="display: inline;">
+                            <button type="submit" class="btn btn-delete" onclick="return confirm('¿Estás seguro de eliminar este destino?')">
+                                Eliminar
                             </button>
                         </form>
                     </div>

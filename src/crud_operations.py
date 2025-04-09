@@ -14,10 +14,19 @@ def insertar_varios_destinos(destinos):
 # READ
 def obtener_destinos(params={}):
     filtro = {}
-    # Campos de texto
-    for campo in ['nombre', 'pais', 'clima', 'actividades']:
+    # Campos de texto simples
+    for campo in ['nombre', 'pais', 'clima']:
         if valor := params.get(campo):
             filtro[campo] = valor
+    
+    # Campo de actividades (tratado como array)
+    if actividades := params.get('actividades'):
+        lista_actividades = [act.strip() for act in actividades.split(',')]
+        if len(lista_actividades) == 1:
+            filtro['actividades'] = lista_actividades[0]
+        else:
+            # Busca destinos que contengan CUALQUIERA de las actividades
+            filtro['actividades'] = {'$in': lista_actividades}
 
     # Campos numéricos
     for campo in ['costo_promedio', 'puntuacion']:
@@ -26,7 +35,8 @@ def obtener_destinos(params={}):
                 filtro[campo] = int(valor)
             except ValueError:
                 pass
-        return list(coleccion.find(filtro))
+    
+    return list(coleccion.find(filtro))
 
 # UPDATE
 def actualizar_destino(filtro, nuevos_valores):
