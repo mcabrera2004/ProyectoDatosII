@@ -19,7 +19,7 @@ def obtener_destinos(params={}):
         if valor := params.get(campo):
             filtro[campo] = valor
 
-# Campos numéricos
+    # Campos numéricos
     for campo in ['costo_promedio', 'puntuacion']:
         if valor := params.get(campo):
             try:
