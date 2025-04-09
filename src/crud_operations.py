@@ -26,7 +26,7 @@ def obtener_destinos(params={}):
                 filtro[campo] = int(valor)
             except ValueError:
                 pass
-        return list(coleccion.find(filtro, {"_id": 0}))
+        return list(coleccion.find(filtro))
 
 # UPDATE
 def actualizar_destino(filtro, nuevos_valores):

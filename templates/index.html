@@ -217,14 +217,29 @@
             </form>
         </section>
 
-        <section class="recommendations">
-            <div class="destination-card">
-                <img src="{{ url_for('static', filename='images/paris.jpg') }}" alt="Destino 1">
-                <div class="destination-card-content">
-                    <h3>París, Francia</h3>
-                    <p>Experiencia cultural única con monumentos históricos y gastronomía excepcional.</p>
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="{{ url_for('filtro_destinos') }}" style="
+                display: inline-block;
+                background-color: var(--primary-color);
+                color: white;
+                text-decoration: none;
+                padding: 12px 24px;
+                border-radius: 8px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(74,108,247,0.2);">
+                Ver Todos los Destinos
+        </a>
+        </div>
+            <section class="recommendations">
+                <div class="destination-card">
+                    <img src="{{ url_for('static', filename='images/paris.jpg') }}" alt="Destino 1">
+                    <div class="destination-card-content">
+                        <h3>París, Francia</h3>
+                        <p>Experiencia cultural única con monumentos históricos y gastronomía excepcional.</p>
+                    </div>
                 </div>
-            </div>
 
             <div class="destination-card">
                 <img src="{{ url_for('static', filename='images/tokio.jpg') }}" alt="Destino 2">
