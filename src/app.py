@@ -2,6 +2,7 @@
 from flask import Flask, request, render_template, url_for, redirect
 from pymongo import MongoClient
 import os
+from bson import ObjectId
 from crud_operations import insertar_destino, obtener_destinos, actualizar_destino, eliminar_destino
 
 
@@ -40,10 +41,32 @@ def crear_destino():
     # Funcionalidad no implementada aún
     return "Función para crear destino no implementada aún", 501
 
+# ----------------------------------------------------------------
+
 @app.route('/editar_destino/<id>', methods=['GET', 'POST'])
 def editar_destino(id):
-    # Funcionalidad no implementada aún
-    return f"Función para editar destino {id} no implementada aún", 501
+    if request.method == 'POST':
+        # Obtener los datos del formulario
+        nuevos_valores = {
+            "nombre": request.form.get('nombre'),
+            "pais": request.form.get('pais'),
+            "clima": request.form.get('clima'),
+            "actividades": request.form.get('actividades').split(','),
+            "costo_promedio": int(request.form.get('costo_promedio')),
+            "puntuacion": int(request.form.get('puntuacion'))
+        }
+        # Actualizar el destino en la base de datos
+        actualizar_destino({"_id": ObjectId(id)}, nuevos_valores)
+        return redirect(url_for('filtro_destinos'))
+
+    # Obtener el destino actual desde la base de datos
+    destino = coleccion.find_one({"_id": ObjectId(id)})
+    if not destino:
+        return render_template('error.html', mensaje="Destino no encontrado"), 404
+
+    return render_template('editar_destino.html', destino=destino)
+
+# ----------------------------------------------------------------
 
 @app.route('/eliminar_destino_ruta/<id>', methods=['POST'])
 def eliminar_destino_ruta(id):

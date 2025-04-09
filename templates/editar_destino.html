@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Destino</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --primary-light: #6889b9;
+            --secondary: #ff6b6b;
+            --dark: #2d3748;
+            --light: #f8f9fa;
+            --gray: #e9ecef;
+            --success: #1abc9c;
+            --danger: #e74c3c;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        /* Header y navegación */
+        header {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .navbar h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        /* Contenedor principal */
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+        
+        /* Estilos para el formulario */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--gray);
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.2);
+        }
+        
+        /* Botones de acción */
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            flex: 1;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .btn-save {
+            background-color: var(--success);
+            color: white;
+        }
+        
+        .btn-save:hover {
+            background-color: #16a085;
+            transform: translateY(-2px);
+        }
+        
+        .btn-cancel {
+            background-color: var(--danger);
+            color: white;
+        }
+        
+        .btn-cancel:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 576px) {
+            .container {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1><i class="fas fa-globe-americas"></i> Destinos Turísticos</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1><i class="fas fa-edit"></i> Editar Destino</h1>
+        <form action="{{ url_for('editar_destino', id=destino._id) }}" method="POST">
+            <div class="form-group">
+                <label for="nombre">Nombre del destino:</label>
+                <input type="text" id="nombre" name="nombre" class="form-control" value="{{ destino.nombre }}" required>
+            </div>
+            <div class="form-group">
+                <label for="pais">País:</label>
+                <input type="text" id="pais" name="pais" class="form-control" value="{{ destino.pais }}" required>
+            </div>
+            <div class="form-group">
+                <label for="clima">Clima:</label>
+                <select id="clima" name="clima" class="form-control">
+                    <option value="Desértico" {% if destino.clima == 'Desértico' %}selected{% endif %}>Desértico</option>
+                    <option value="Tropical" {% if destino.clima == 'Tropical' %}selected{% endif %}>Tropical</option>
+                    <option value="Templado" {% if destino.clima == 'Templado' %}selected{% endif %}>Templado</option>
+                    <option value="Frío" {% if destino.clima == 'Frío' %}selected{% endif %}>Frío</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="actividades">Actividades:</label>
+                <input type="text" id="actividades" name="actividades" class="form-control" value="{{ destino.actividades|join(', ') }}">
+                <small class="text-muted">Separa las actividades con comas (ej: senderismo, playa, cultura)</small>
+            </div>
+            <div class="form-group">
+                <label for="costo_promedio">Costo Promedio:</label>
+                <input type="number" id="costo_promedio" name="costo_promedio" class="form-control" value="{{ destino.costo_promedio }}">
+            </div>
+            <div class="form-group">
+                <label for="puntuacion">Puntuación:</label>
+                <input type="number" id="puntuacion" name="puntuacion" class="form-control" value="{{ destino.puntuacion }}" min="1" max="5">
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-save"><i class="fas fa-save"></i> Guardar Cambios</button>
+                <a href="{{ url_for('filtro_destinos') }}" class="btn btn-cancel"><i class="fas fa-times"></i> Cancelar</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
