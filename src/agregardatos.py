@@ -32,7 +32,7 @@ try:
     collection = db[collection_name]
 
     print(f"Insertando datos en la colección '{collection_name}'...")
-    datos_falsos = [generar_datos_falsos() for i in range(10)] 
+    datos_falsos = [generar_datos_falsos() for i in range(3)] 
     collection.insert_many(datos_falsos)
     print("Datos insertados correctamente.")
 
