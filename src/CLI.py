@@ -8,6 +8,7 @@ def main():
         print("1. Listar destinos")
         print("2. Crear destino")
         print("3. Actualizar Destino")
+        print("4. Eliminar destino")
         opcion = input("Seleccione una opción: ")
 
         if opcion == "1":
