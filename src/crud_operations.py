@@ -53,19 +53,28 @@ def insertar_destino(destino):
     return result
 
 def insertar_varios_destinos(cantidad):
-     documentos = []
-     for i in range(cantidad):
+    documentos = []
+    for i in range(cantidad):
         destino = {
             "nombre": fake.city(),
             "pais": fake.country(),
-            "clima": fake.random_element(elements=["Desértico", "Tropical", "Templado", "Frío"]),
-            "actividades": fake.random_elements(elements=["laborum", "exercitationem", "voluptas", "aventura", "relax"], length=3, unique=True),
-            "costo_promedio": fake.random_int(min=500, max=5000),
+            "clima": fake.random_element(
+                elements=[
+                    "Desértico", "Tropical", "Templado", "Frío",
+                    "Lluvioso", "Nublado", "Ventoso", "Soleado", "Húmedo", "Seco"
+                ]
+            ),
+            "actividades": fake.random_elements(
+                elements=["senderismo", "natación", "ciclismo", "ski", "fotografía", "gastronomía", "festival"],
+                length=3, 
+                unique=True
+            ),
+            "costo_promedio": fake.random_int(min=100, max=2000),
             "puntuacion": fake.random_int(min=1, max=5)
         }
         documentos.append(destino)
-     resultado = coleccion.insert_many(documentos)
-     return resultado.inserted_ids
+    resultado = coleccion.insert_many(documentos)
+    return resultado.inserted_ids
 
 #------------------------------------------------------------------------------------
 
