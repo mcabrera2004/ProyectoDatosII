@@ -1,8 +1,9 @@
 from main import obtener_base_datos
+from faker import Faker
 import json
 import os
 import datetime
-
+fake = Faker('es_ES')
 db = obtener_base_datos()
 coleccion = db["testeo"]
 
@@ -13,8 +14,8 @@ DATA_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'de
 def registrar_evento(evento, documento):
     try:
         try:
-            print("5. Iniciando registrar_evento:", evento)
-            print("   Documento recibido:", documento)
+            print("Iniciando registrar_evento:", evento)
+            print("Documento recibido:", documento)
 
             documento_serializable = json.loads(json.dumps(documento, default=str))
             print("Documento serializado correctamente")
@@ -34,7 +35,7 @@ def registrar_evento(evento, documento):
             "documento": documento_serializable,
             "timestamp": str(datetime.datetime.now())
         })
-        print("   Escribiendo datos en archivo JSON")
+        print("Escribiendo datos en archivo JSON")
         with open(DATA_FILE, 'w') as f:
             json.dump(datos, f, indent=4, ensure_ascii=False)
         print("Datos guardados correctamente en", DATA_FILE)
@@ -47,11 +48,24 @@ def registrar_evento(evento, documento):
 
 # CREATE
 def insertar_destino(destino):
-    return coleccion.insert_one(destino).inserted_id
+    result = coleccion.insert_one(destino).inserted_id
+    registrar_evento("insert", {"datos": destino})
+    return result
 
-def insertar_varios_destinos(destinos):
-    resultado = coleccion.insert_many(destinos)
-    return resultado.inserted_ids
+def insertar_varios_destinos(cantidad):
+     documentos = []
+     for i in range(cantidad):
+        destino = {
+            "nombre": fake.city(),
+            "pais": fake.country(),
+            "clima": fake.random_element(elements=["Desértico", "Tropical", "Templado", "Frío"]),
+            "actividades": fake.random_elements(elements=["laborum", "exercitationem", "voluptas", "aventura", "relax"], length=3, unique=True),
+            "costo_promedio": fake.random_int(min=500, max=5000),
+            "puntuacion": fake.random_int(min=1, max=5)
+        }
+        documentos.append(destino)
+     resultado = coleccion.insert_many(documentos)
+     return resultado.inserted_ids
 
 #------------------------------------------------------------------------------------
 
@@ -97,6 +111,8 @@ def eliminar_destino(filtro):
     result = coleccion.delete_many(filtro)
     registrar_evento("delete", {"filtro": filtro})
     return result
+
+#------------------------------------------------------------------------------------
 
 '''def agregar_destinos():
     #Agregar datos manualmente

@@ -25,11 +25,22 @@ def home():
 
 # ---------------------------------------------------------------- CREATE
 
-# Rutas agregadas para evitar errores
 @app.route('/crear_destino', methods=['GET', 'POST'])
 def crear_destino():
-    # Funcionalidad no implementada aún
-    return "Función para crear destino no implementada aún", 501 
+    if request.method == 'POST':
+        destino = {
+            "nombre": request.form.get('nombre'),
+            "pais": request.form.get('pais'),
+            "clima": request.form.get('clima'),
+            "actividades": [act.strip() for act in request.form.get('actividades').split(',')],
+            "costo_promedio": int(request.form.get('costo_promedio')),
+            "puntuacion": int(request.form.get('puntuacion'))
+        }
+        insertar_destino(destino)
+        return redirect(url_for('filtro_destinos'))
+    
+    # Si es GET, mostrar el formulario para crear destino
+    return render_template('crear_destino.html') 
    
 # ---------------------------------------------------------------- READ
     
@@ -76,26 +87,6 @@ def eliminar_destino_ruta(id):
         return redirect(url_for('filtro_destinos'))
     except Exception as e:
         return render_template('error.html', mensaje=str(e))
-
-# ----------------------------------------------------------------
-
-'''@app.route('/estadisticas', methods=['GET'])
-def estadisticas():
-    """Obtiene estadísticas de precios por clima"""
-    try:
-        pipeline = [
-            {"$group": {
-                "_id": "$clima",
-                "total_destinos": {"$sum": 1},
-                "precio_promedio": {"$avg": "$costo_promedio"},
-                "precio_maximo": {"$max": "$costo_promedio"},
-                "precio_minimo": {"$min": "$costo_promedio"}
-            }}
-        ]
-        stats = list(coleccion.aggregate(pipeline))
-        return jsonify({"data": stats}), 200
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500'''
 
 # ----------------------------------------------------------------
 
