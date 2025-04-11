@@ -9,6 +9,8 @@ def main():
         print("2. Crear destino")
         print("3. Actualizar Destino")
         print("4. Eliminar destino")
+        print("5. Insertar destinos con Faker")
+        print("6. Salir")
         opcion = input("Seleccione una opción: ")
 
         if opcion == "1":
@@ -42,6 +44,7 @@ def main():
                     print(destino)
             except Exception as e:
                 print("Error al obtener destinos:", e)
+                
         elif opcion == "2":
             destino = {}
             destino["nombre"] = input("Ingrese nombre: ")

@@ -1,4 +1,4 @@
-from main import obtener_base_datos
+from BBDD import obtener_base_datos
 from faker import Faker
 import json
 import os
