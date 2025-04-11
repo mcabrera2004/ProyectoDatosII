@@ -4,271 +4,450 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Viajes - Recomendación de Destinos</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #4a6cf7;
-            --secondary-color: #6b7280;
-            --background-color: #f9fafb;
-            --card-background: white;
-            --text-dark: #111827;
-            --text-light: #6b7280;
+            --primary: #4a6fa5;
+            --primary-light: #6889b9;
+            --secondary: #ff6b6b;
+            --dark: #2d3748;
+            --light: #f8f9fa;
+            --gray: #e9ecef;
+            --success: #1abc9c;
+            --danger: #e74c3c;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
         }
-
+        
         body {
-            background-color: var(--background-color);
-            color: var(--text-dark);
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
             line-height: 1.6;
         }
-
-        .container {
-            width: 90%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--primary-color), #7c3aed);
+        
+        /* Hero section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), #364f6b);
             color: white;
+            padding: 5rem 1.5rem;
             text-align: center;
-            padding: 2rem 0;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            position: relative;
+            overflow: hidden;
         }
-
-        header h1 {
-            font-size: 2.5rem;
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
-
-        header p {
-            color: rgba(255,255,255,0.8);
-            font-weight: 300;
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
         }
-
+        
+        /* Contenedor principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        
+        /* Sección de búsqueda */
         .search-section {
-            background-color: var(--card-background);
-            border-radius: 16px;
-            padding: 40px;
-            margin: 30px 0;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: -3rem;
+            position: relative;
+            z-index: 2;
+            box-shadow: var(--shadow);
         }
-
-        .search-form {
+        
+        .search-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-size: 1.5rem;
             display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
         }
-
-        .search-form > * {
-            flex-grow: 1;
-            max-width: 220px;
+        
+        .search-title i {
+            margin-right: 10px;
         }
-
-        .search-form select, 
-        .search-form input {
-            padding: 12px 15px;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
+        
+        .search-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--gray);
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
             font-size: 0.9rem;
             transition: all 0.3s ease;
         }
-
-        .search-form select:focus, 
-        .search-form input:focus {
+        
+        .form-control:focus {
             outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(74,108,247,0.1);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(74,111,165,0.1);
         }
-
-        .search-form button {
-            background-color: var(--primary-color);
+        
+        .search-button {
+            background-color: var(--primary);
             color: white;
             border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(74,108,247,0.2);
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin-top: 1rem;
         }
-
-        .search-form button:hover {
-            background-color: #3a56e3;
+        
+        .search-button:hover {
+            background-color: var(--primary-light);
             transform: translateY(-2px);
         }
-
-        .recommendations {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
+        
+        .search-button i {
+            margin-right: 8px;
         }
-
-        .destination-card {
-            background-color: var(--card-background);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        
+        /* Ver todos los destinos */
+        .view-all-section {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .view-all-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--success);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            box-shadow: var(--shadow);
             transition: all 0.3s ease;
-            transform: translateY(0);
         }
-
+        
+        .view-all-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+        }
+        
+        .view-all-button i {
+            margin-right: 8px;
+        }
+        
+        /* Sección de recomendaciones */
+        .recommendations-section {
+            margin-top: 3rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            margin: 0.8rem auto 0;
+            border-radius: 2px;
+        }
+        
+        /* Grid de tarjetas */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        /* Tarjeta de destino */
+        .destination-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
         .destination-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
         }
-
+        
         .destination-card img {
             width: 100%;
-            height: 250px;
+            height: 220px;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            transition: transform 0.5s ease;
         }
-
+        
         .destination-card:hover img {
             transform: scale(1.05);
         }
-
-        .destination-card-content {
-            padding: 20px;
+        
+        .card-content {
+            padding: 1.5rem;
         }
-
-        .destination-card-content h3 {
-            margin-bottom: 10px;
-            color: var(--text-dark);
-            font-weight: 600;
-            font-size: 1.2rem;
+        
+        .card-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
         }
-
-        .destination-card-content p {
-            color: var(--text-light);
-            font-size: 0.9rem;
+        
+        .card-content p {
+            color: var(--dark);
+            opacity: 0.8;
+            font-size: 0.95rem;
         }
-
+        
+        /* Decoraciones */
+        .decoration {
+            position: absolute;
+            z-index: 0;
+        }
+        
+        .decoration-1 {
+            top: 20%;
+            left: 5%;
+            width: 100px;
+            height: 100px;
+            background-color: var(--secondary);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+        
+        .decoration-2 {
+            bottom: 10%;
+            right: 5%;
+            width: 150px;
+            height: 150px;
+            background-color: var(--primary);
+            opacity: 0.1;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+        
+        /* Footer */
         footer {
-            background-color: var(--text-dark);
+            background-color: var(--dark);
             color: white;
             text-align: center;
-            padding: 1.5rem;
-            margin-top: 30px;
+            padding: 2rem 1.5rem;
+            margin-top: 4rem;
+        }
+        
+        footer p {
+            opacity: 0.8;
             font-size: 0.9rem;
         }
-
+        
+        /* Responsive */
         @media (max-width: 768px) {
-            .search-form {
-                flex-direction: column;
+            .hero h1 {
+                font-size: 2.2rem;
             }
-
-            .search-form > * {
-                max-width: 100%;
+            
+            .search-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .cards-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Descubre tu Próximo Destino</h1>
-            <p>Recomendaciones personalizadas para tu viaje perfecto</p>
+    <!-- Sección Hero -->
+    <section class="hero">
+        <div class="decoration decoration-1"></div>
+        <div class="decoration decoration-2"></div>
+        <div class="hero-content">
+            <h1><i class="fas fa-globe-americas"></i> Descubre tu Próximo Destino</h1>
+            <p>Recomendaciones personalizadas para experiencias de viaje inolvidables</p>
         </div>
-    </header>
+    </section>
 
     <div class="container">
+        <!-- Sección de búsqueda -->
         <section class="search-section">
-            <form class="search-form">
-                <select name="continent">
-                    <option value="">Continente</option>
-                    <option value="europa">Europa</option>
-                    <option value="asia">Asia</option>
-                    <option value="america">América</option>
-                    <option value="africa">África</option>
-                    <option value="oceania">Oceanía</option>
-                </select>
-
-                <select name="budget">
-                    <option value="">Presupuesto</option>
-                    <option value="low">Económico</option>
-                    <option value="medium">Medio</option>
-                    <option value="high">Premium</option>
-                </select>
-
-                <select name="activities">
-                    <option value="">Actividades</option>
-                    <option value="cultural">Cultural</option>
-                    <option value="adventure">Aventura</option>
-                    <option value="relax">Relajación</option>
-                    <option value="nature">Naturaleza</option>
-                </select>
-
-                <input type="month" name="travel-date">
-
-                <button type="submit">Buscar Destinos</button>
+            <h2 class="search-title"><i class="fas fa-search"></i> Encuentra tu destino ideal</h2>
+            <form class="search-form" action="{{ url_for('filtro_destinos') }}" method="GET">
+                <div class="form-group">
+                    <label for="continent">Continente:</label>
+                    <select id="continent" name="continent" class="form-control">
+                        <option value="">Todos los continentes</option>
+                        <option value="europa">Europa</option>
+                        <option value="asia">Asia</option>
+                        <option value="america">América</option>
+                        <option value="africa">África</option>
+                        <option value="oceania">Oceanía</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="budget">Presupuesto:</label>
+                    <select id="budget" name="budget" class="form-control">
+                        <option value="">Cualquier presupuesto</option>
+                        <option value="low">Económico</option>
+                        <option value="medium">Medio</option>
+                        <option value="high">Premium</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="activities">Actividades:</label>
+                    <select id="activities" name="activities" class="form-control">
+                        <option value="">Todas las actividades</option>
+                        <option value="cultural">Cultural</option>
+                        <option value="adventure">Aventura</option>
+                        <option value="relax">Relajación</option>
+                        <option value="nature">Naturaleza</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="travel-date">Fecha de viaje:</label>
+                    <input type="month" id="travel-date" name="travel-date" class="form-control">
+                </div>
+                
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <button type="submit" class="search-button">
+                        <i class="fas fa-paper-plane"></i> Buscar Destinos
+                    </button>
+                </div>
             </form>
         </section>
-
-        <div style="text-align: center; margin: 30px 0;">
-            <a href="{{ url_for('filtro_destinos') }}" style="
-                display: inline-block;
-                background-color: var(--primary-color);
-                color: white;
-                text-decoration: none;
-                padding: 12px 24px;
-                border-radius: 8px;
-                font-weight: 600;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                box-shadow: 0 4px 6px rgba(74,108,247,0.2);">
-                Ver Todos los Destinos
-        </a>
+        
+        <!-- Sección "Ver todos los destinos" -->
+        <div class="view-all-section">
+            <a href="{{ url_for('filtro_destinos') }}" class="view-all-button">
+                <i class="fas fa-map-marked-alt"></i> Explorar Todos los Destinos
+            </a>
         </div>
-            <section class="recommendations">
+        
+        <!-- Sección de recomendaciones -->
+        <section class="recommendations-section">
+            <h2 class="section-title">Destinos Recomendados</h2>
+            
+            <div class="cards-grid">
                 <div class="destination-card">
-                    <img src="{{ url_for('static', filename='images/paris.jpg') }}" alt="Destino 1">
-                    <div class="destination-card-content">
-                        <h3>París, Francia</h3>
-                        <p>Experiencia cultural única con monumentos históricos y gastronomía excepcional.</p>
+                    <img src="{{ url_for('static', filename='images/paris.jpg') }}" alt="París">
+                    <div class="card-content">
+                        <h3><i class="fas fa-map-marker-alt"></i> París, Francia</h3>
+                        <p>Experiencia cultural única con monumentos históricos y gastronomía excepcional. La ciudad del amor te espera.</p>
                     </div>
                 </div>
-
-            <div class="destination-card">
-                <img src="{{ url_for('static', filename='images/tokio.jpg') }}" alt="Destino 2">
-                <div class="destination-card-content">
-                    <h3>Tokio, Japón</h3>
-                    <p>Tecnología de vanguardia, tradiciones milenarias y experiencias culinarias incomparables.</p>
+                
+                <div class="destination-card">
+                    <img src="{{ url_for('static', filename='images/tokio.jpg') }}" alt="Tokio">
+                    <div class="card-content">
+                        <h3><i class="fas fa-map-marker-alt"></i> Tokio, Japón</h3>
+                        <p>Tecnología de vanguardia, tradiciones milenarias y experiencias culinarias incomparables en la capital nipona.</p>
+                    </div>
                 </div>
-            </div>
-
-            <div class="destination-card">
-                <img src="{{ url_for('static', filename='images/cusco.jpg') }}" alt="Destino 3">
-                <div class="destination-card-content">
-                    <h3>Cusco, Perú</h3>
-                    <p>Sitios arqueológicos impresionantes, cultura inca y paisajes naturales espectaculares.</p>
+                
+                <div class="destination-card">
+                    <img src="{{ url_for('static', filename='images/cusco.jpg') }}" alt="Cusco">
+                    <div class="card-content">
+                        <h3><i class="fas fa-map-marker-alt"></i> Cusco, Perú</h3>
+                        <p>Sitios arqueológicos impresionantes, cultura inca y paisajes naturales espectaculares en los Andes peruanos.</p>
+                    </div>
                 </div>
-            </div>
-
-            <div class="destination-card">
-                <img src="{{ url_for('static', filename='images/bali.jpg') }}" alt="Destino 4">
-                <div class="destination-card-content">
-                    <h3>Bali, Indonesia</h3>
-                    <p>Playas paradisíacas, cultura espiritual y experiencias de relajación total.</p>
+                
+                <div class="destination-card">
+                    <img src="{{ url_for('static', filename='images/bali.jpg') }}" alt="Bali">
+                    <div class="card-content">
+                        <h3><i class="fas fa-map-marker-alt"></i> Bali, Indonesia</h3>
+                        <p>Playas paradisíacas, cultura espiritual y experiencias de relajación total en esta isla del sudeste asiático.</p>
+                    </div>
                 </div>
             </div>
         </section>
     </div>
-
+    
     <footer>
         <p>© 2025 Viajes - Recomendación Personalizada | Proyecto de Ingeniería de Datos</p>
     </footer>
+
+    <script>
+        // Script para dar animación a las tarjetas de destinos
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.destination-card');
+            
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
 </body>
 </html>

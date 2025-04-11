@@ -1,7 +1,49 @@
 from main import obtener_base_datos
+import json
+import os
+import datetime
 
 db = obtener_base_datos()
 coleccion = db["testeo"]
+
+#------------------------------------------------------------------------------------
+
+DATA_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'destinos.json')
+
+def registrar_evento(evento, documento):
+    try:
+        try:
+            print("5. Iniciando registrar_evento:", evento)
+            print("   Documento recibido:", documento)
+
+            documento_serializable = json.loads(json.dumps(documento, default=str))
+            print("Documento serializado correctamente")
+        except Exception as json_error:
+            print("Error al serializar el documento:", str(json_error))
+
+        try:   
+            with open(DATA_FILE, 'r') as f:
+                datos = json.load(f)
+            print("Datos cargados correctamente")
+        except json.JSONDecodeError:
+            print("Archivo JSON vacío o no válido, creando nuevo archivo")
+            datos = []
+                
+        datos.append({
+            "evento": evento,
+            "documento": documento_serializable,
+            "timestamp": str(datetime.datetime.now())
+        })
+        print("   Escribiendo datos en archivo JSON")
+        with open(DATA_FILE, 'w') as f:
+            json.dump(datos, f, indent=4, ensure_ascii=False)
+        print("Datos guardados correctamente en", DATA_FILE)
+
+    except Exception as e:
+        print(f"Error al registrar evento en JSON: {e}")
+
+
+#------------------------------------------------------------------------------------
 
 # CREATE
 def insertar_destino(destino):
@@ -10,6 +52,8 @@ def insertar_destino(destino):
 def insertar_varios_destinos(destinos):
     resultado = coleccion.insert_many(destinos)
     return resultado.inserted_ids
+
+#------------------------------------------------------------------------------------
 
 # READ
 def obtener_destinos(params={}):
@@ -38,13 +82,21 @@ def obtener_destinos(params={}):
     
     return list(coleccion.find(filtro))
 
+#------------------------------------------------------------------------------------
+
 # UPDATE
 def actualizar_destino(filtro, nuevos_valores):
-    return coleccion.update_many(filtro, {"$set": nuevos_valores})
+    result = coleccion.update_many(filtro, {"$set": nuevos_valores})
+    registrar_evento("update", {"filtro": filtro, "nuevos_valores": nuevos_valores})
+    return result
+
+#------------------------------------------------------------------------------------
 
 # DELETE
 def eliminar_destino(filtro):
-    return coleccion.delete_many(filtro)
+    result = coleccion.delete_many(filtro)
+    registrar_evento("delete", {"filtro": filtro})
+    return result
 
 '''def agregar_destinos():
     #Agregar datos manualmente

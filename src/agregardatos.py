@@ -1,5 +1,7 @@
 from pymongo import MongoClient
 from faker import Faker
+from crud_operations import registrar_evento
+from bson import ObjectId
 import os
 
 mongo_uri = os.environ.get("MONGO_URI")
@@ -35,8 +37,12 @@ try:
     print("Datos insertados correctamente.")
 
     print(f"Documentos en la colección '{collection_name}':")
-    
     consultar_documentos(collection)
+
+    for i, documento in enumerate(datos_falsos):
+        print(f"Registrando documento {i+1}/10")
+        registrar_evento("insert", {"datos": documento})
+    print("Todos los documentos han sido registrados.")
 
 except Exception as e:
     print(f"Error al realizar operaciones en la base de datos: {e}")
