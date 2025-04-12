@@ -133,7 +133,6 @@ def main():
             if not nuevos_valores:
                 print("No se proporcionaron nuevos valores para actualizar.")
                 continue
-
             try:
                 resultado = actualizar_destino(filtro, nuevos_valores)
                 print(f"Destino actualizado. Registros modificados: {resultado.modified_count}")
