@@ -1,0 +1,762 @@
+[
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Ciudad",
+                "pais": "Federación de Rusia",
+                "clima": "Desértico",
+                "actividades": [
+                    "natación",
+                    "gastronomía",
+                    "fotografía"
+                ],
+                "costo_promedio": 303,
+                "puntuacion": 5,
+                "_id": "67fab3e469a2de5b0677d8a8"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:40.598895"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "La Rioja",
+                "pais": "Haití",
+                "clima": "Ventoso",
+                "actividades": [
+                    "gastronomía",
+                    "ciclismo",
+                    "natación"
+                ],
+                "costo_promedio": 1141,
+                "puntuacion": 1,
+                "_id": "67fab3e469a2de5b0677d8a9"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:40.601963"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Melilla",
+                "pais": "Benin",
+                "clima": "Ventoso",
+                "actividades": [
+                    "fotografía",
+                    "ciclismo",
+                    "ski"
+                ],
+                "costo_promedio": 395,
+                "puntuacion": 5,
+                "_id": "67fab3e469a2de5b0677d8aa"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:40.604884"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Teruel",
+                "pais": "Noruega",
+                "clima": "Soleado",
+                "actividades": [
+                    "fotografía",
+                    "gastronomía",
+                    "ski"
+                ],
+                "costo_promedio": 894,
+                "puntuacion": 1,
+                "_id": "67fab3e469a2de5b0677d8ab"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:40.611157"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Segovia",
+                "pais": "Mali",
+                "clima": "Nublado",
+                "actividades": [
+                    "senderismo",
+                    "ciclismo",
+                    "natación"
+                ],
+                "costo_promedio": 499,
+                "puntuacion": 1,
+                "_id": "67fab3e469a2de5b0677d8ac"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:40.621118"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Alicante",
+                "pais": "Argentina",
+                "clima": "Frío",
+                "actividades": [
+                    "festival",
+                    "gastronomía",
+                    "ciclismo"
+                ],
+                "costo_promedio": 1765,
+                "puntuacion": 1,
+                "_id": "67fab3e469a2de5b0677d8ad"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:40.629839"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Murcia",
+                "pais": "Bhután",
+                "clima": "Templado",
+                "actividades": [
+                    "natación",
+                    "fotografía",
+                    "senderismo"
+                ],
+                "costo_promedio": 1186,
+                "puntuacion": 3,
+                "_id": "67fab3e469a2de5b0677d8ae"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:40.634479"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Alicante",
+                "pais": "Palau",
+                "clima": "Frío",
+                "actividades": [
+                    "ski",
+                    "festival",
+                    "fotografía"
+                ],
+                "costo_promedio": 972,
+                "puntuacion": 2,
+                "_id": "67fab3e469a2de5b0677d8af"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:40.646572"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Toledo",
+                "pais": "Qatar",
+                "clima": "Lluvioso",
+                "actividades": [
+                    "ciclismo",
+                    "festival",
+                    "gastronomía"
+                ],
+                "costo_promedio": 1558,
+                "puntuacion": 2,
+                "_id": "67fab3e469a2de5b0677d8b0"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:40.656829"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Zaragoza",
+                "pais": "Benin",
+                "clima": "Húmedo",
+                "actividades": [
+                    "senderismo",
+                    "gastronomía",
+                    "ciclismo"
+                ],
+                "costo_promedio": 1031,
+                "puntuacion": 5,
+                "_id": "67fab3e469a2de5b0677d8b1"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:40.667251"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Murcia",
+                "pais": "Liberia",
+                "clima": "Desértico",
+                "actividades": [
+                    "gastronomía",
+                    "senderismo",
+                    "festival"
+                ],
+                "costo_promedio": 1549,
+                "puntuacion": 2,
+                "_id": "67fab3e469a2de5b0677d8b2"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:40.670389"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Burgos",
+                "pais": "Bolivia",
+                "clima": "Soleado",
+                "actividades": [
+                    "fotografía",
+                    "ski",
+                    "festival"
+                ],
+                "costo_promedio": 805,
+                "puntuacion": 5,
+                "_id": "67fab3e469a2de5b0677d8b3"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:40.677897"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Zamora",
+                "pais": "Guinea",
+                "clima": "Frío",
+                "actividades": [
+                    "festival",
+                    "senderismo",
+                    "ciclismo"
+                ],
+                "costo_promedio": 712,
+                "puntuacion": 2,
+                "_id": "67fab3e469a2de5b0677d8b4"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:40.683392"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Córdoba",
+                "pais": "Francia",
+                "clima": "Húmedo",
+                "actividades": [
+                    "ciclismo",
+                    "senderismo",
+                    "festival"
+                ],
+                "costo_promedio": 724,
+                "puntuacion": 2,
+                "_id": "67fab3e469a2de5b0677d8b5"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:40.691248"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Huesca",
+                "pais": "Emiratos Árabes Unidos",
+                "clima": "Húmedo",
+                "actividades": [
+                    "senderismo",
+                    "festival",
+                    "ciclismo"
+                ],
+                "costo_promedio": 734,
+                "puntuacion": 3,
+                "_id": "67fab3e469a2de5b0677d8b6"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:40.696279"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Ceuta",
+                "pais": "China",
+                "clima": "Templado",
+                "actividades": [
+                    "festival",
+                    "fotografía",
+                    "ski"
+                ],
+                "costo_promedio": 662,
+                "puntuacion": 5,
+                "_id": "67fab3e469a2de5b0677d8b7"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:40.700845"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Córdoba",
+                "pais": "Ucrania",
+                "clima": "Frío",
+                "actividades": [
+                    "gastronomía",
+                    "ciclismo",
+                    "festival"
+                ],
+                "costo_promedio": 1538,
+                "puntuacion": 3,
+                "_id": "67fab3e469a2de5b0677d8b8"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:40.710539"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Córdoba",
+                "pais": "Djibouti",
+                "clima": "Húmedo",
+                "actividades": [
+                    "festival",
+                    "ski",
+                    "natación"
+                ],
+                "costo_promedio": 1293,
+                "puntuacion": 2,
+                "_id": "67fab3e469a2de5b0677d8b9"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:40.724826"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Baleares",
+                "pais": "Portugal",
+                "clima": "Soleado",
+                "actividades": [
+                    "gastronomía",
+                    "natación",
+                    "senderismo"
+                ],
+                "costo_promedio": 571,
+                "puntuacion": 1,
+                "_id": "67fab3e469a2de5b0677d8ba"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:40.735097"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Granada",
+                "pais": "República Popular Democrática de Corea",
+                "clima": "Frío",
+                "actividades": [
+                    "ciclismo",
+                    "senderismo",
+                    "gastronomía"
+                ],
+                "costo_promedio": 1515,
+                "puntuacion": 1,
+                "_id": "67fab3e469a2de5b0677d8bb"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:40.739770"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Pontevedra",
+                "pais": "Chile",
+                "clima": "Templado",
+                "actividades": [
+                    "ciclismo",
+                    "festival",
+                    "senderismo"
+                ],
+                "costo_promedio": 1230,
+                "puntuacion": 2,
+                "_id": "67fab3f6a63bdc1ac8167da7"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:58.579067"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Murcia",
+                "pais": "Islandia",
+                "clima": "Húmedo",
+                "actividades": [
+                    "ski",
+                    "fotografía",
+                    "festival"
+                ],
+                "costo_promedio": 1212,
+                "puntuacion": 3,
+                "_id": "67fab3f6a63bdc1ac8167da8"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:58.586755"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Soria",
+                "pais": "República Democrática del Congo",
+                "clima": "Soleado",
+                "actividades": [
+                    "natación",
+                    "ciclismo",
+                    "ski"
+                ],
+                "costo_promedio": 341,
+                "puntuacion": 3,
+                "_id": "67fab3f6a63bdc1ac8167da9"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:58.600614"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Soria",
+                "pais": "Nicaragua",
+                "clima": "Templado",
+                "actividades": [
+                    "fotografía",
+                    "senderismo",
+                    "gastronomía"
+                ],
+                "costo_promedio": 568,
+                "puntuacion": 2,
+                "_id": "67fab3f6a63bdc1ac8167daa"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:58.612672"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Guipúzcoa",
+                "pais": "Eritrea",
+                "clima": "Tropical",
+                "actividades": [
+                    "gastronomía",
+                    "ski",
+                    "senderismo"
+                ],
+                "costo_promedio": 1941,
+                "puntuacion": 3,
+                "_id": "67fab3f6a63bdc1ac8167dab"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:58.617689"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Santa Cruz de Tenerife",
+                "pais": "Malta",
+                "clima": "Tropical",
+                "actividades": [
+                    "fotografía",
+                    "ski",
+                    "natación"
+                ],
+                "costo_promedio": 334,
+                "puntuacion": 4,
+                "_id": "67fab3f6a63bdc1ac8167dac"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:58.629562"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Málaga",
+                "pais": "Uganda",
+                "clima": "Seco",
+                "actividades": [
+                    "natación",
+                    "senderismo",
+                    "ski"
+                ],
+                "costo_promedio": 1292,
+                "puntuacion": 1,
+                "_id": "67fab3f6a63bdc1ac8167dad"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:58.640338"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Tarragona",
+                "pais": "República de Macedonia del Norte",
+                "clima": "Seco",
+                "actividades": [
+                    "senderismo",
+                    "gastronomía",
+                    "festival"
+                ],
+                "costo_promedio": 1838,
+                "puntuacion": 4,
+                "_id": "67fab3f6a63bdc1ac8167dae"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:58.742930"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Almería",
+                "pais": "México",
+                "clima": "Soleado",
+                "actividades": [
+                    "festival",
+                    "senderismo",
+                    "gastronomía"
+                ],
+                "costo_promedio": 886,
+                "puntuacion": 1,
+                "_id": "67fab3f6a63bdc1ac8167daf"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:58.771435"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Ourense",
+                "pais": "Georgia",
+                "clima": "Nublado",
+                "actividades": [
+                    "fotografía",
+                    "ciclismo",
+                    "gastronomía"
+                ],
+                "costo_promedio": 878,
+                "puntuacion": 2,
+                "_id": "67fab3f6a63bdc1ac8167db0"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:58.789124"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Asturias",
+                "pais": "Filipinas",
+                "clima": "Soleado",
+                "actividades": [
+                    "fotografía",
+                    "ciclismo",
+                    "senderismo"
+                ],
+                "costo_promedio": 1576,
+                "puntuacion": 5,
+                "_id": "67fab3f6a63bdc1ac8167db1"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:58.802290"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "La Coruña",
+                "pais": "Gambia",
+                "clima": "Ventoso",
+                "actividades": [
+                    "fotografía",
+                    "natación",
+                    "ciclismo"
+                ],
+                "costo_promedio": 311,
+                "puntuacion": 1,
+                "_id": "67fab3f6a63bdc1ac8167db2"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:58.813683"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Murcia",
+                "pais": "Bélgica",
+                "clima": "Nublado",
+                "actividades": [
+                    "gastronomía",
+                    "fotografía",
+                    "natación"
+                ],
+                "costo_promedio": 1871,
+                "puntuacion": 2,
+                "_id": "67fab3f6a63bdc1ac8167db3"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:58.826208"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Ceuta",
+                "pais": "Italia",
+                "clima": "Ventoso",
+                "actividades": [
+                    "ciclismo",
+                    "ski",
+                    "festival"
+                ],
+                "costo_promedio": 377,
+                "puntuacion": 2,
+                "_id": "67fab3f6a63bdc1ac8167db4"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:58.836412"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Guadalajara",
+                "pais": "Mali",
+                "clima": "Húmedo",
+                "actividades": [
+                    "senderismo",
+                    "fotografía",
+                    "gastronomía"
+                ],
+                "costo_promedio": 125,
+                "puntuacion": 3,
+                "_id": "67fab3f6a63bdc1ac8167db5"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:58.850421"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Soria",
+                "pais": "Malasia",
+                "clima": "Húmedo",
+                "actividades": [
+                    "natación",
+                    "gastronomía",
+                    "ciclismo"
+                ],
+                "costo_promedio": 526,
+                "puntuacion": 2,
+                "_id": "67fab3f6a63bdc1ac8167db6"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:58.859825"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Lugo",
+                "pais": "Bahamas",
+                "clima": "Desértico",
+                "actividades": [
+                    "ski",
+                    "senderismo",
+                    "natación"
+                ],
+                "costo_promedio": 1903,
+                "puntuacion": 1,
+                "_id": "67fab3f6a63bdc1ac8167db7"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:58.873632"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Burgos",
+                "pais": "Francia",
+                "clima": "Nublado",
+                "actividades": [
+                    "natación",
+                    "ski",
+                    "gastronomía"
+                ],
+                "costo_promedio": 1586,
+                "puntuacion": 1,
+                "_id": "67fab3f6a63bdc1ac8167db8"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:58.883421"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Huesca",
+                "pais": "España",
+                "clima": "Nublado",
+                "actividades": [
+                    "senderismo",
+                    "festival",
+                    "fotografía"
+                ],
+                "costo_promedio": 932,
+                "puntuacion": 3,
+                "_id": "67fab3f6a63bdc1ac8167db9"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:58.913884"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "León",
+                "pais": "Filipinas",
+                "clima": "Soleado",
+                "actividades": [
+                    "festival",
+                    "senderismo",
+                    "ski"
+                ],
+                "costo_promedio": 1139,
+                "puntuacion": 5,
+                "_id": "67fab3f6a63bdc1ac8167dba"
+            }
+        },
+        "timestamp": "2025-04-12 18:41:58.928780"
+    }
+]

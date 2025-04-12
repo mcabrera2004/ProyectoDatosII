@@ -74,10 +74,23 @@ def insertar_varios_destinos(cantidad):
             "puntuacion": fake.random_int(min=1, max=5)
         }
         documentos.append(destino)
-    resultado = coleccion.insert_many(documentos)
 
-    for destino in documentos:
+    # Se guardan los documentos en un JSON temporal para evitar duplicados
+    json_file_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'destinos_temp.json')
+    with open(json_file_path, 'w', encoding='utf-8') as f:
+        json.dump(documentos, f, indent=4, ensure_ascii=False)
+
+    # Cargar los datos desde el archivo JSON temporal
+    with open(json_file_path, 'r', encoding='utf-8') as f:
+        datos = json.load(f)
+
+    # Insertar los datos en la colección y registrar cada inserción en destinos.json
+    resultado = coleccion.insert_many(datos)
+    for destino in datos:
         registrar_evento("insert_many", {"datos": destino})
+    
+    # Eliminar el archivo temporal después de la carga
+    os.remove(json_file_path)
 
     return resultado.inserted_ids
 
