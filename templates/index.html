@@ -335,62 +335,16 @@
     </section>
 
     <div class="container">
-        <!-- Sección de búsqueda -->
+        <!-- Sección simplificada - solo botón de ver todos los destinos -->
         <section class="search-section">
-            <h2 class="search-title"><i class="fas fa-search"></i> Encuentra tu destino ideal</h2>
-            <form class="search-form" action="{{ url_for('filtro_destinos') }}" method="GET">
-                <div class="form-group">
-                    <label for="continent">Continente:</label>
-                    <select id="continent" name="continent" class="form-control">
-                        <option value="">Todos los continentes</option>
-                        <option value="europa">Europa</option>
-                        <option value="asia">Asia</option>
-                        <option value="america">América</option>
-                        <option value="africa">África</option>
-                        <option value="oceania">Oceanía</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="budget">Presupuesto:</label>
-                    <select id="budget" name="budget" class="form-control">
-                        <option value="">Cualquier presupuesto</option>
-                        <option value="low">Económico</option>
-                        <option value="medium">Medio</option>
-                        <option value="high">Premium</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="activities">Actividades:</label>
-                    <select id="activities" name="activities" class="form-control">
-                        <option value="">Todas las actividades</option>
-                        <option value="cultural">Cultural</option>
-                        <option value="adventure">Aventura</option>
-                        <option value="relax">Relajación</option>
-                        <option value="nature">Naturaleza</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="travel-date">Fecha de viaje:</label>
-                    <input type="month" id="travel-date" name="travel-date" class="form-control">
-                </div>
-                
-                <div class="form-group" style="grid-column: 1 / -1;">
-                    <button type="submit" class="search-button">
-                        <i class="fas fa-paper-plane"></i> Buscar Destinos
-                    </button>
-                </div>
-            </form>
+            <h2 class="search-title"><i class="fas fa-globe-americas"></i> Explora Nuestros Destinos</h2>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="{{ url_for('filtro_destinos') }}" class="search-button" style="display: inline-flex; max-width: 300px; margin: 0 auto;">
+                    <i class="fas fa-map-marked-alt"></i> Ver Todos los Destinos
+                </a>
+            </div>
         </section>
         
-        <!-- Sección "Ver todos los destinos" -->
-        <div class="view-all-section">
-            <a href="{{ url_for('filtro_destinos') }}" class="view-all-button">
-                <i class="fas fa-map-marked-alt"></i> Explorar Todos los Destinos
-            </a>
-        </div>
         
         <!-- Sección de recomendaciones -->
         <section class="recommendations-section">

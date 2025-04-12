@@ -2,7 +2,7 @@ from flask import Flask, request, render_template, url_for, redirect
 from pymongo import MongoClient
 import os
 from bson import ObjectId
-from crud_operations import insertar_destino, obtener_destinos, actualizar_destino, eliminar_destino
+from crud_operations import insertar_destino, obtener_destinos, actualizar_destino, eliminar_destino, eliminar_todos_los_destinos, insertar_varios_destinos
 
 
 app = Flask(__name__, template_folder="../templates", static_folder="../static")
@@ -84,6 +84,30 @@ def editar_destino(id):
 def eliminar_destino_ruta(id):
     try:
         eliminar_destino({"_id": ObjectId(id)})
+        return redirect(url_for('filtro_destinos'))
+    except Exception as e:
+        return render_template('error.html', mensaje=str(e))
+
+# ----------------------------------------------------------------
+
+@app.route('/eliminar_todos_destinos', methods=['POST'])
+def eliminar_todos():
+    try:
+        eliminar_todos_los_destinos()
+        return redirect(url_for('filtro_destinos'))
+    except Exception as e:
+        return render_template('error.html', mensaje=str(e))
+    
+# ----------------------------------------------------------------
+
+@app.route('/generar_destinos', methods=['POST'])
+def generar_destinos():
+    try:
+        cantidad = int(request.form.get('cantidad', 1))
+        if cantidad > 20:
+            cantidad = 20
+        insertar_varios_destinos(cantidad)
+        
         return redirect(url_for('filtro_destinos'))
     except Exception as e:
         return render_template('error.html', mensaje=str(e))

@@ -155,13 +155,15 @@ def main():
         elif opcion == "5":
             while True:
                 try:
-                    valor = int(input("¿Cuántos destinos desea insertar? (número entero): "))
+                    valor = int(input("¿Cuántos destinos desea insertar? (número entero). Máximo 20: "))
                     if valor <=0:
                         print("El número de destinos a insertar debe ser mayor que 0.")
                         continue
                     break
                 except ValueError:
                     print("Valor inválido, ingrese un número entero.")
+            if valor > 20:
+                valor = 20
             insertar_varios_destinos(valor)
             print("Datos insertados correctamente.")
 

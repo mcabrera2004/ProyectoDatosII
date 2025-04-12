@@ -134,7 +134,6 @@ def eliminar_todos_los_destinos():
         registrar_evento("delete_all", {"datos": documento})
     count_after = coleccion.count_documents({})
     print(f"Documentos en la colección '{collection_name}' después de vaciar: {count_after}")
-    
     return result
 
 #------------------------------------------------------------------------------------
