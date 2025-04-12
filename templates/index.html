@@ -18,20 +18,20 @@
             --danger: #e74c3c;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Poppins', sans-serif;
             background-color: var(--light);
             color: var(--dark);
             line-height: 1.6;
         }
-        
+
         /* Hero section */
         .hero {
             background: linear-gradient(135deg, var(--primary), #364f6b);
@@ -41,7 +41,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero::before {
             content: '';
             position: absolute;
@@ -55,34 +55,34 @@
             opacity: 0.2;
             z-index: 0;
         }
-        
+
         .hero-content {
             position: relative;
             z-index: 1;
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .hero h1 {
             font-size: 3rem;
             font-weight: 700;
             margin-bottom: 1rem;
             text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
-        
+
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
             opacity: 0.9;
         }
-        
+
         /* Contenedor principal */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem 1.5rem;
         }
-        
+
         /* Sección de búsqueda */
         .search-section {
             background-color: white;
@@ -93,7 +93,7 @@
             z-index: 2;
             box-shadow: var(--shadow);
         }
-        
+
         .search-title {
             text-align: center;
             margin-bottom: 1.5rem;
@@ -103,28 +103,28 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .search-title i {
             margin-right: 10px;
         }
-        
+
         .search-form {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
         }
-        
+
         .form-group {
             margin-bottom: 1rem;
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 500;
             color: var(--dark);
         }
-        
+
         .form-control {
             width: 100%;
             padding: 0.8rem;
@@ -134,13 +134,13 @@
             font-size: 0.9rem;
             transition: all 0.3s ease;
         }
-        
+
         .form-control:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(74,111,165,0.1);
         }
-        
+
         .search-button {
             background-color: var(--primary);
             color: white;
@@ -158,22 +158,22 @@
             width: 100%;
             margin-top: 1rem;
         }
-        
+
         .search-button:hover {
             background-color: var(--primary-light);
             transform: translateY(-2px);
         }
-        
+
         .search-button i {
             margin-right: 8px;
         }
-        
+
         /* Ver todos los destinos */
         .view-all-section {
             text-align: center;
             margin: 3rem 0;
         }
-        
+
         .view-all-button {
             display: inline-flex;
             align-items: center;
@@ -186,21 +186,21 @@
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
         }
-        
+
         .view-all-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
         }
-        
+
         .view-all-button i {
             margin-right: 8px;
         }
-        
+
         /* Sección de recomendaciones */
         .recommendations-section {
             margin-top: 3rem;
         }
-        
+
         .section-title {
             text-align: center;
             margin-bottom: 2rem;
@@ -208,7 +208,7 @@
             color: var(--primary);
             font-size: 1.8rem;
         }
-        
+
         .section-title::after {
             content: '';
             display: block;
@@ -218,14 +218,14 @@
             margin: 0.8rem auto 0;
             border-radius: 2px;
         }
-        
+
         /* Grid de tarjetas */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 2rem;
         }
-        
+
         /* Tarjeta de destino */
         .destination-card {
             background-color: white;
@@ -234,45 +234,45 @@
             box-shadow: var(--shadow);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         .destination-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
         }
-        
+
         .destination-card img {
             width: 100%;
             height: 220px;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
-        
+
         .destination-card:hover img {
             transform: scale(1.05);
         }
-        
+
         .card-content {
             padding: 1.5rem;
         }
-        
+
         .card-content h3 {
             font-size: 1.3rem;
             margin-bottom: 0.5rem;
             color: var(--primary);
         }
-        
+
         .card-content p {
             color: var(--dark);
             opacity: 0.8;
             font-size: 0.95rem;
         }
-        
+
         /* Decoraciones */
         .decoration {
             position: absolute;
             z-index: 0;
         }
-        
+
         .decoration-1 {
             top: 20%;
             left: 5%;
@@ -282,7 +282,7 @@
             opacity: 0.1;
             border-radius: 50%;
         }
-        
+
         .decoration-2 {
             bottom: 10%;
             right: 5%;
@@ -292,7 +292,7 @@
             opacity: 0.1;
             border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
         }
-        
+
         /* Footer */
         footer {
             background-color: var(--dark);
@@ -301,12 +301,12 @@
             padding: 2rem 1.5rem;
             margin-top: 4rem;
         }
-        
+
         footer p {
             opacity: 0.8;
             font-size: 0.9rem;
         }
-        
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -320,6 +320,78 @@
             .cards-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
+        }
+
+        /* Nueva sección decorativa */
+        .inspiration-section {
+            margin-top: 4rem;
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(135deg, rgba(74,111,165,0.05), rgba(54,79,107,0.1));
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .inspiration-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .inspiration-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: var(--shadow);
+            color: var(--primary);
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .inspiration-icon:hover {
+            transform: translateY(-10px) rotate(10deg);
+            color: var(--secondary);
+        }
+
+        .inspiration-message {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--dark);
+        }
+
+        .inspiration-message strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .wave-decoration {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z' fill='%23ffffff'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            opacity: 0.8;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
         }
     </style>
 </head>
@@ -344,45 +416,33 @@
                 </a>
             </div>
         </section>
-        
-        
-        <!-- Sección de recomendaciones -->
-        <section class="recommendations-section">
-            <h2 class="section-title">Destinos Recomendados</h2>
-            
-            <div class="cards-grid">
-                <div class="destination-card">
-                    <img src="{{ url_for('static', filename='images/paris.jpg') }}" alt="París">
-                    <div class="card-content">
-                        <h3><i class="fas fa-map-marker-alt"></i> París, Francia</h3>
-                        <p>Experiencia cultural única con monumentos históricos y gastronomía excepcional. La ciudad del amor te espera.</p>
-                    </div>
+
+        <!-- Nueva sección decorativa -->
+        <section class="inspiration-section">
+            <div class="inspiration-icons">
+                <div class="inspiration-icon floating" style="animation-delay: 0s;">
+                    <i class="fas fa-plane"></i>
                 </div>
-                
-                <div class="destination-card">
-                    <img src="{{ url_for('static', filename='images/tokio.jpg') }}" alt="Tokio">
-                    <div class="card-content">
-                        <h3><i class="fas fa-map-marker-alt"></i> Tokio, Japón</h3>
-                        <p>Tecnología de vanguardia, tradiciones milenarias y experiencias culinarias incomparables en la capital nipona.</p>
-                    </div>
+                <div class="inspiration-icon floating" style="animation-delay: 0.5s;">
+                    <i class="fas fa-mountain"></i>
                 </div>
-                
-                <div class="destination-card">
-                    <img src="{{ url_for('static', filename='images/cusco.jpg') }}" alt="Cusco">
-                    <div class="card-content">
-                        <h3><i class="fas fa-map-marker-alt"></i> Cusco, Perú</h3>
-                        <p>Sitios arqueológicos impresionantes, cultura inca y paisajes naturales espectaculares en los Andes peruanos.</p>
-                    </div>
+                <div class="inspiration-icon floating" style="animation-delay: 1s;">
+                    <i class="fas fa-umbrella-beach"></i>
                 </div>
-                
-                <div class="destination-card">
-                    <img src="{{ url_for('static', filename='images/bali.jpg') }}" alt="Bali">
-                    <div class="card-content">
-                        <h3><i class="fas fa-map-marker-alt"></i> Bali, Indonesia</h3>
-                        <p>Playas paradisíacas, cultura espiritual y experiencias de relajación total en esta isla del sudeste asiático.</p>
-                    </div>
+                <div class="inspiration-icon floating" style="animation-delay: 1.5s;">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <div class="inspiration-icon floating" style="animation-delay: 2s;">
+                    <i class="fas fa-utensils"></i>
                 </div>
             </div>
+            
+            <div class="inspiration-message">
+                <p>El mundo está lleno de <strong>lugares increíbles</strong> esperando a ser descubiertos. Desde majestuosas montañas hasta playas paradisíacas, culturas fascinantes y experiencias culinarias únicas.</p>
+                <p style="margin-top: 1rem;">Utiliza nuestra herramienta para <strong>encontrar tu destino ideal</strong> y comenzar a planificar tu próxima aventura.</p>
+            </div>
+            
+            <div class="wave-decoration"></div>
         </section>
     </div>
     
@@ -391,14 +451,13 @@
     </footer>
 
     <script>
-        // Script para dar animación a las tarjetas de destinos
         document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.destination-card');
-            
-            cards.forEach((card, index) => {
+            // Efecto para los iconos de inspiración
+            const icons = document.querySelectorAll('.inspiration-icon');
+            icons.forEach((icon, index) => {
                 setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
+                    icon.style.opacity = '1';
+                    icon.style.transform = 'translateY(0)';
                 }, 100 * index);
             });
         });
