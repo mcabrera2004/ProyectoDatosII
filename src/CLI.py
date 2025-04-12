@@ -1,6 +1,6 @@
 import os
 from BBDD import obtener_base_datos
-from crud_operations import insertar_destino, obtener_destinos, actualizar_destino, eliminar_destino, insertar_varios_destinos
+from crud_operations import insertar_destino, obtener_destinos, actualizar_destino, eliminar_destino, insertar_varios_destinos, eliminar_todos_los_destinos
 from bson import ObjectId
 
 db = obtener_base_datos()
@@ -14,7 +14,8 @@ def main():
         print("3. Actualizar Destino")
         print("4. Eliminar destino")
         print("5. Insertar destinos con Faker")
-        print("6. Salir")
+        print("6. Eliminar todos los destinos")
+        print("7. Salir")
         opcion = input("Seleccione una opción: ")
 
         if opcion == "1":
@@ -163,7 +164,18 @@ def main():
                     print("Valor inválido, ingrese un número entero.")
             insertar_varios_destinos(valor)
             print("Datos insertados correctamente.")
+
         elif opcion == "6":
+            confirmacion = input("¿Está seguro de que desea eliminar todos los destinos? (si/no): ").strip().lower()
+            if confirmacion == "si":
+                try:
+                    eliminar_todos_los_destinos()
+                    print("Todos los destinos han sido eliminados correctamente.")
+                except Exception as e:
+                    print("Error al eliminar todos los destinos:", e)
+            else:
+                print("Operación cancelada.")
+        elif opcion == "7":
             print("Saliendo del programa. ¡Hasta luego!")
             break
         else:       

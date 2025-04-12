@@ -6,6 +6,7 @@ import datetime
 fake = Faker('es_ES')
 db = obtener_base_datos()
 coleccion = db["testeo"]
+collection_name = coleccion.name
 
 #------------------------------------------------------------------------------------
 
@@ -74,6 +75,10 @@ def insertar_varios_destinos(cantidad):
         }
         documentos.append(destino)
     resultado = coleccion.insert_many(documentos)
+
+    for destino in documentos:
+        registrar_evento("insert_many", {"datos": destino})
+
     return resultado.inserted_ids
 
 #------------------------------------------------------------------------------------
@@ -119,6 +124,17 @@ def actualizar_destino(filtro, nuevos_valores):
 def eliminar_destino(filtro):
     result = coleccion.delete_many(filtro)
     registrar_evento("delete", {"filtro": filtro})
+    return result
+
+def eliminar_todos_los_destinos():
+    documentos_a_eliminar = list(coleccion.find({}))
+    result = coleccion.delete_many({})
+    print(f"Se eliminaron {result.deleted_count} documentos de la colección '{collection_name}'")
+    for documento in documentos_a_eliminar:
+        registrar_evento("delete_all", {"datos": documento})
+    count_after = coleccion.count_documents({})
+    print(f"Documentos en la colección '{collection_name}' después de vaciar: {count_after}")
+    
     return result
 
 #------------------------------------------------------------------------------------
