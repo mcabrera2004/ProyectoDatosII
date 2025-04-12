@@ -1,6 +1,10 @@
 import os
-from crud_operations import insertar_destino, obtener_destinos, actualizar_destino, eliminar_destino
+from BBDD import obtener_base_datos
+from crud_operations import insertar_destino, obtener_destinos, actualizar_destino, eliminar_destino, insertar_varios_destinos
 from bson import ObjectId
+
+db = obtener_base_datos()
+coleccion = db["testeo"]
 
 def main():
     while True:
@@ -147,6 +151,21 @@ def main():
                 print(f"Destino eliminado. Registros eliminados: {resultado.deleted_count}")
             except Exception as e:
                 print("Error al eliminar destino:", e)
+        elif opcion == "5":
+            while True:
+                try:
+                    valor = int(input("¿Cuántos destinos desea insertar? (número entero): "))
+                    if valor <=0:
+                        print("El número de destinos a insertar debe ser mayor que 0.")
+                        continue
+                    break
+                except ValueError:
+                    print("Valor inválido, ingrese un número entero.")
+            insertar_varios_destinos(valor)
+            print("Datos insertados correctamente.")
+        elif opcion == "6":
+            print("Saliendo del programa. ¡Hasta luego!")
+            break
         else:       
             print("Opción no reconocida.")
 
