@@ -758,5 +758,82 @@
             }
         },
         "timestamp": "2025-04-12 18:41:58.928780"
+    },
+    {
+        "evento": "insert",
+        "documento": {
+            "datos": {
+                "nombre": "Buenos Aires",
+                "pais": "Argentina",
+                "clima": "Calido",
+                "actividades": [
+                    "turisteo",
+                    "comer"
+                ],
+                "costo_promedio": 1000,
+                "puntuacion": 5,
+                "_id": "6809362d32a1cc9307e0cfd5"
+            }
+        },
+        "timestamp": "2025-04-23 18:49:17.754653"
+    },
+    {
+        "evento": "update",
+        "documento": {
+            "filtro": {
+                "_id": "6809362d32a1cc9307e0cfd5"
+            },
+            "nuevos_valores": {
+                "nombre": "Ciudad de Buenos Aires"
+            }
+        },
+        "timestamp": "2025-04-23 18:49:45.053247"
+    },
+    {
+        "evento": "delete",
+        "documento": {
+            "filtro": {
+                "_id": "6809362d32a1cc9307e0cfd5"
+            }
+        },
+        "timestamp": "2025-04-23 18:49:58.259995"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Zamora",
+                "pais": "Zimbabwe",
+                "clima": "Templado",
+                "actividades": [
+                    "gastronomía",
+                    "ciclismo",
+                    "festival"
+                ],
+                "costo_promedio": 172,
+                "puntuacion": 2,
+                "_id": "6809366632a1cc9307e0cfd6"
+            }
+        },
+        "timestamp": "2025-04-23 18:50:14.991289"
+    },
+    {
+        "evento": "insert_many",
+        "documento": {
+            "datos": {
+                "nombre": "Navarra",
+                "pais": "Grecia",
+                "clima": "Seco",
+                "actividades": [
+                    "ciclismo",
+                    "festival",
+                    "fotografía"
+                ],
+                "costo_promedio": 1607,
+                "puntuacion": 4,
+                "_id": "6809366632a1cc9307e0cfd7"
+            }
+        },
+        "timestamp": "2025-04-23 18:50:14.997122"
     }
 ]
