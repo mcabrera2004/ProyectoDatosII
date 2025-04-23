@@ -14,7 +14,7 @@ def conectar_mongodb():
 def obtener_base_datos():
     try:
         client = conectar_mongodb()
-        return client[os.environ.get("DB_NAME")]
+        return client["viajes_recomendacion"]
     except Exception as e:
         print(f"Error al obtener la base de datos: {e}")
         return None
