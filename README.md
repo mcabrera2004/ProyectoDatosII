@@ -22,10 +22,14 @@ Cloná este repositorio:
 Montar la imagen de docker con:
    docker-compose build
 
+EJECUCION: 
+
 Luego para ejecutar:
    docker-compose up -d
 
-Abrir "dev container reopen in container"
+LUEGO SE ABRE DEV CONTAINERS:
+
+ "dev container reopen in container"
 
 ---
 

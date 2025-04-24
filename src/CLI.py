@@ -1,4 +1,3 @@
-import os
 from BBDD import obtener_base_datos
 from crud_operations import insertar_destino, obtener_destinos, actualizar_destino, eliminar_destino, insertar_varios_destinos, eliminar_todos_los_destinos
 from bson import ObjectId

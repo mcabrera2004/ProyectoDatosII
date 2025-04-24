@@ -3,7 +3,7 @@ import os
 
 def conectar_mongodb():
     try:
-        client = MongoClient(os.environ.get("MONGO_URI"))
+        client = MongoClient("mongodb+srv://equipo_viajes:equipopassword@ingdatos.hzoisln.mongodb.net/viajes_recomendacion?retryWrites=true&w=majority&authSource=admin")
         print("⚡ Conexión exitosa a MongoDB!")
         return client
     except Exception as e:
@@ -14,7 +14,7 @@ def conectar_mongodb():
 def obtener_base_datos():
     try:
         client = conectar_mongodb()
-        return client[os.environ.get("DB_NAME")]
+        return client["viajes_recomendacion"]
     except Exception as e:
         print(f"Error al obtener la base de datos: {e}")
         return None

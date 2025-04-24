@@ -1,19 +1,14 @@
 from flask import Flask, request, render_template, url_for, redirect
-from pymongo import MongoClient
-import os
 from bson import ObjectId
+from BBDD import obtener_base_datos
 from crud_operations import insertar_destino, obtener_destinos, actualizar_destino, eliminar_destino, eliminar_todos_los_destinos, insertar_varios_destinos
 
 
 app = Flask(__name__, template_folder="../templates", static_folder="../static")
 
 # Configuración de MongoDB
-MONGO_URI = os.environ.get("MONGO_URI")
-DB_NAME = os.environ.get("DB_NAME")
 
-# Conexión a MongoDB
-client = MongoClient(MONGO_URI)
-db = client[DB_NAME]
+db = obtener_base_datos() 
 coleccion = db["testeo"]
 
 # ---------------------------------------------------------------- MAIN
