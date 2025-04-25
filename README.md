@@ -41,3 +41,4 @@ MONGO_URI=mongodb+srv://equipo_viajes:[contraseña]@ingdatos.hzoisln.mongodb.net
 
 DB_NAME=viajes_recomendacion
 
+### DASHBOARD Power BI:
